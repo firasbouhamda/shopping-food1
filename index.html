@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shopping_cart </title>
+   <script>
+       var escaloppePoulet= {
+      id:1,
+        libelleProduit : "Escalope de poulet", prix : "50",
+         image:"img/escaloppe-poulet-2672.jpg", classeCSS:"escalope"
+
+       }
+       
+       var saladeComposee=
+       {
+           id:2,
+        libelleProduit : "Salade composée", prix : "12",
+         image:"img/salade-composee.jpg", classeCSS:"salade"
+
+       }
+       var paellaMini=
+       {
+           id:3,
+        libelleProduit : "paella mini", prix : "12",
+         image:"img/paella-mini-black.jpg", classeCSS:"paella"
+
+       }
+       var plats=[escaloppePoulet,saladeComposee,paellaMini]
+       var panier=[]
+       function ajouterPlat(platId)
+       {
+           for(plat of plats)
+           {
+               if (plat.id==platId)
+               {
+                   panier.push(plat)
+               }
+           }
+           for(plat of panier)
+           {
+              console.log(plat)
+           }
+       }
+
+
+</script>
+
+<h1 class="title"> Dinner in the Sky</h1>
+</nav>
+
+<body>
+    <h1 class="titel_2">Dinner in the Sky </h1>
+   <div  id="items" class="gros" >
+   </div>
+</body>
+<script>
+    var itemsElement=document.getElementById('items')
+for(plat of plats)
+       {
+                var itemElement = document.createElement('div')
+                itemElement.class=plat.classeCSS  
+                var item='<img src="'+plat.image+'" alt="'+plat.libelleProduit+'">'
+                 item +='<h2> '+plat.libelleProduit+'</h2>'
+                  item +='<h4>prix = '+plat.prix+' DT </h4>'
+                  item+='<button onclick="ajouterPlat('+plat.id+')"> ajouter </button>'
+                 itemElement.innerHTML=item
+                   itemsElement.appendChild(itemElement)
+       }
+</script>
+</html>
